@@ -1,0 +1,27 @@
+DROP SCHEMA IF EXISTS  users_note;
+CREATE SCHEMA users_note;
+SET SCHEMA users_note;
+
+CREATE TABLE user (
+  id INT NOT NULL AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  login VARCHAR(100) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE (`login`));
+
+CREATE TABLE note (
+  id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL,
+  date TIMESTAMP NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE metka (
+  id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE (`title`));
+
+CREATE TABLE metka_note (
+  id_note INT NOT NULL,
+  id_metka INT NOT NULL);
