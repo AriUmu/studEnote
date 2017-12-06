@@ -30,4 +30,5 @@ CREATE TABLE mark_note (
 
 CREATE TABLE notebook (
   id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL
 )
