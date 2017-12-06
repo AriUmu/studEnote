@@ -12,7 +12,9 @@ CREATE TABLE user (
 
 CREATE TABLE note (
   id INT NOT NULL AUTO_INCREMENT,
+  id_user INT NOT NULL,
   title VARCHAR(255) NOT NULL,
+  note_body VARCHAR(1000) NOT NULL,
   date TIMESTAMP NOT NULL,
   PRIMARY KEY (`id`));
 
