@@ -4,8 +4,8 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.epam.note.model.Metka" table="METKA" schema="USERS_NOTE" catalog="USERS_NOTE">
-        <id name="id" column="ID"/>
-        <property name="title" column="TITLE"/>
+    <class name="com.epam.note.model.MetkaNote" table="METKA_NOTE" schema="USERS_NOTE" catalog="USERS_NOTE">
+        <property name="idNote" column="ID_NOTE"/>
+        <property name="idMetka" column="ID_METKA"/>
     </class>
 </hibernate-mapping>

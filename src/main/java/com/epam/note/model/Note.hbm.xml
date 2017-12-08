@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="com.epam.note.model.Note" table="NOTE" schema="USERS_NOTE" catalog="USER_NOTE">
+    <class name="com.epam.note.model.Note" table="NOTE" schema="USERS_NOTE" catalog="USERS_NOTE">
         <id name="id" column="ID"/>
         <property name="idUser" column="ID_USER"/>
         <property name="title" column="TITLE"/>
