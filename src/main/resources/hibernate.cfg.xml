@@ -6,10 +6,7 @@
   <session-factory>
     <property name="connection.url">jdbc:h2:mem:users_note</property>
     <property name="connection.driver_class">org.h2.Driver</property>
-    <mapping resource="com/epam/note/model/Metka.hbm.xml"/>
-    <mapping resource="com/epam/note/model/Note.hbm.xml"/>
-    <mapping resource="com/epam/note/model/User.hbm.xml"/>
-    <mapping resource="com/epam/note/model/MetkaNote.hbm.xml"/>
+
 
     <!--DB schema will be updated if needed -->
      <!--<property name="hbm2ddl.auto">update</property> -->
