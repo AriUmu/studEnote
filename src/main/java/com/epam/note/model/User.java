@@ -1,10 +1,21 @@
 package com.epam.note.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user")
 public class User {
+
+    @Id
+    @GeneratedValue
     private int id;
+
     private String name;
     private String login;
     private String password;
+
+    public User() {
+    }
 
     public int getId() {
         return id;
@@ -48,9 +59,7 @@ public class User {
         if (id != user.id) return false;
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         if (login != null ? !login.equals(user.login) : user.login != null) return false;
-        if (password != null ? !password.equals(user.password) : user.password != null) return false;
-
-        return true;
+        return password != null ? password.equals(user.password) : user.password == null;
     }
 
     @Override
