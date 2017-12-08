@@ -14,16 +14,21 @@ CREATE TABLE note (
   id INT NOT NULL AUTO_INCREMENT,
   id_user INT NOT NULL,
   title VARCHAR(255) NOT NULL,
-  note_body VARCHAR(1000) NOT NULL,
   date TIMESTAMP NOT NULL,
+  id_notebook INT NOT NULL,
   PRIMARY KEY (`id`));
 
-CREATE TABLE metka (
+CREATE TABLE mark (
   id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE (`title`));
 
-CREATE TABLE metka_note (
+CREATE TABLE mark_note (
   id_note INT NOT NULL,
   id_metka INT NOT NULL);
+
+CREATE TABLE notebook (
+  id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(255) NOT NULL
+)
