@@ -6,14 +6,14 @@ CREATE TABLE user (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
   login VARCHAR(100) NOT NULL,
-  password VARCHAR(255) NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE (`login`));
 
 CREATE TABLE note (
   id INT NOT NULL AUTO_INCREMENT,
-  id_user INT NOT NULL,
-  title VARCHAR(255) NOT NULL,
+  title VARCHAR(20),
+  text VARCHAR(255),
   date TIMESTAMP NOT NULL,
   id_notebook INT NOT NULL,
   PRIMARY KEY (`id`));
