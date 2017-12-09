@@ -12,7 +12,8 @@ CREATE TABLE user (
 
 CREATE TABLE note (
   id INT NOT NULL AUTO_INCREMENT,
-  title VARCHAR(255) NOT NULL,
+  title VARCHAR(20),
+  text VARCHAR(255),
   date TIMESTAMP NOT NULL,
   id_notebook INT NOT NULL,
   PRIMARY KEY (`id`));

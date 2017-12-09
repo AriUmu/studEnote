@@ -1,4 +1,5 @@
 import com.epam.note.config.AppConfig;
+import com.epam.note.dao.UserDaoImpl;
 import com.epam.note.model.User;
 import com.epam.note.persistence.UserRepository;
 import org.junit.Test;
@@ -70,7 +71,5 @@ public class UserDaoImplTest {
         all.forEach(t -> System.out.println(t.getName()));
 
     }
-
-
 
 }
