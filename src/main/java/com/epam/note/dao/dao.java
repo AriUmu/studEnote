@@ -11,4 +11,6 @@ public interface dao<T> {
     void delete(T item);
 
     List<T> getAll();
+
+    T getById(long id);
 }

@@ -9,7 +9,7 @@ public class Note {
 
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
 
     private String title;
@@ -23,7 +23,7 @@ public class Note {
     public Note() {
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -43,7 +43,7 @@ public class Note {
         this.text = text;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
