@@ -1,5 +1,6 @@
 package com.epam.note.model;
 
+
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
