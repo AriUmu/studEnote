@@ -1,7 +1,9 @@
 package com.epam.note.model;
 
-import javax.persistence.*;
+import org.springframework.stereotype.Component;
 
+import javax.persistence.*;
+@Component
 @Entity
 @Table(name = "user")
 public class User {

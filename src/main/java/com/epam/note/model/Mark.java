@@ -11,14 +11,14 @@ public class Mark {
 
     @Id
     @GeneratedValue
-    int id;
+    long id;
 
     String title;
 
     public Mark() {
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -26,7 +26,7 @@ public class Mark {
         this.title = title;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
