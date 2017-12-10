@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface MarkRepository extends JpaRepository<Mark, Long> {
 
 
+
     Mark save(Mark note);
 
     Mark getMarkById(long id);
@@ -15,6 +16,5 @@ public interface MarkRepository extends JpaRepository<Mark, Long> {
     void deleteMarkByTitle(String title);
 
     void deleteMarkById(long id);
-
 
 }

@@ -37,12 +37,12 @@ public class Notebook {
         if (o == null || getClass() != o.getClass()) return false;
 
         Notebook notebook = (Notebook) o;
-
         return title != null ? title.equals(notebook.title) : notebook.title == null;
     }
 
     @Override
     public int hashCode() {
         return title != null ? title.hashCode() : 0;
+
     }
 }

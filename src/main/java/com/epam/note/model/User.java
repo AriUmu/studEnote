@@ -1,7 +1,10 @@
 package com.epam.note.model;
 
-import javax.persistence.*;
 
+import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
+@Component
 @Entity
 @Table(name = "user")
 public class User {
@@ -15,6 +18,12 @@ public class User {
     private String password;
 
     public User() {
+    }
+
+    public User(String name, String login, String password) {
+        this.name = name;
+        this.login = login;
+        this.password = password;
     }
 
     public int getId() {
