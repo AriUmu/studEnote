@@ -10,16 +10,16 @@ import javax.persistence.*;
 public class Notebook {
     @Id
     @GeneratedValue
-    private int id;
+    private long id;
 
     @Column(name = "title")
     private String title;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -37,15 +37,12 @@ public class Notebook {
         if (o == null || getClass() != o.getClass()) return false;
 
         Notebook notebook = (Notebook) o;
-
-        if (id != notebook.id) return false;
         return title != null ? title.equals(notebook.title) : notebook.title == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        return result;
+        return title != null ? title.hashCode() : 0;
+
     }
 }
