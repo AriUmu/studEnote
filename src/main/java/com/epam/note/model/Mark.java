@@ -11,9 +11,9 @@ public class Mark {
 
     @Id
     @GeneratedValue
-    long id;
+    private long id;
 
-    String title;
+    private String title;
 
     public Mark() {
     }

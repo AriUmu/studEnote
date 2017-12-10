@@ -31,8 +31,9 @@ public class MarkRepoTest {
         mark.setTitle("Zametochka");
 
         markRepository.save(mark);
-        Mark testMark = markRepository.getById(1);
-
+        Mark testMark = markRepository.getMarkById(1);
+        System.out.println("=================================================================================");
+        System.out.println(testMark);
         assertThat(testMark, is(mark));
     }
     @Test
@@ -54,11 +55,11 @@ public class MarkRepoTest {
         mark.setId(1);
         mark.setTitle("Zametochka");
         markRepository.save(mark);
-        Mark testMark = markRepository.getById(1);
+        Mark testMark = markRepository.getMarkById(1);
         assertThat(testMark, is(mark));
 
         markRepository.deleteMarkById(mark.getId());
-        testMark = markRepository.getById(1);
+        testMark = markRepository.getMarkById(1);
         assertThat(testMark,is(nullValue()));
     }
 
@@ -70,7 +71,7 @@ public class MarkRepoTest {
         mark.setId(1);
         mark.setTitle("Zametochka");
         markRepository.save(mark);
-        Mark testMark = markRepository.getById(1);
+        Mark testMark = markRepository.getMarkById(1);
         assertThat(testMark, is(mark));
 
         markRepository.deleteMarkByTitle("Zametochka");
