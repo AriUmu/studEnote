@@ -6,6 +6,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User getById(int i);
     User getByName(String name);
+    User getByLogin(String login) throws NullPointerException;
     void deleteById(int id);
+
+
 
 }
