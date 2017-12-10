@@ -12,4 +12,8 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
 
     Note getNoteByTitle(String title);
 
+    void deleteNoteById(long id);
+
+    void deleteNoteByTitle(String title);
+
 }
