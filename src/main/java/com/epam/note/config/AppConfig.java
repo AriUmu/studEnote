@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -21,7 +22,11 @@ import javax.sql.DataSource;
 public class AppConfig {
     @Bean
     public DataSource dataSource(){
-        return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2).build();
+        //new EmbeddedDatabaseBuilder().addScript("s")
+        return (new EmbeddedDatabaseBuilder())
+                .setType(EmbeddedDatabaseType.H2)
+                .addScript("classpath:schema.sql")
+                .build();
     }
 
     @Bean
@@ -36,7 +41,13 @@ public class AppConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(
             DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
         LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
-        bean.setDataSource(dataSource);
+
+        DriverManagerDataSource dataSource1 = new DriverManagerDataSource();
+        dataSource1.setDriverClassName("org.h2.Driver");
+        dataSource1.setUrl("jdbc:h2:mem:users_note;DB_CLOSE_DELAY=-1");
+        dataSource1.setUsername("sa");
+        dataSource1.setPassword("");
+        bean.setDataSource(dataSource1);
         bean.setJpaVendorAdapter(jpaVendorAdapter);
         bean.setPackagesToScan("com.epam.note.model");
         return bean;

@@ -30,6 +30,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-java8:5.2.12.Final" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.2.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: javax.transaction:jta:1.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-jpa:1.10.1.RELEASE" level="project" />

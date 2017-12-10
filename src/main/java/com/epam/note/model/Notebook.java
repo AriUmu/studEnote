@@ -15,6 +15,10 @@ public class Notebook {
     @Column(name = "title")
     private String title;
 
+    public Notebook() {
+
+    }
+
     public long getId() {
         return id;
     }

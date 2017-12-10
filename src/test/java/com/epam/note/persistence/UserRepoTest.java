@@ -23,16 +23,14 @@ public class UserRepoTest {
     UserRepository userRepository;
 
     @Test
-    public void getAll() {
+    public void getById() {
         User user = new User();
-        user.setId(1);
         user.setName("Aru");
         user.setLogin("Ariha@yandex.ru");
         user.setPassword("1234");
 
         userRepository.save(user);
-        User user1 = userRepository.getById(1);
-
+        User user1 = userRepository.getByLogin("Ariha@yandex.ru");
         assertThat(user1.getName(), is("Aru"));
     }
 

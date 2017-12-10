@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Component
@@ -11,6 +12,7 @@ import javax.persistence.Table;
 @Table(name = "mark_note")
 public class MarkNote {
 
+    @Id
     @Column(name = "id_metka")
     private int id_mark;
 

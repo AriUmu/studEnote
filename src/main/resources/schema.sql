@@ -5,10 +5,10 @@ SET SCHEMA users_note;
 CREATE TABLE user (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(100) NOT NULL,
-  login VARCHAR(100) NOT NULL,
-  password_hash VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE (`login`));
+  login VARCHAR (100) NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`)
+);
 
 CREATE TABLE note (
   id INT NOT NULL AUTO_INCREMENT,
@@ -26,9 +26,11 @@ CREATE TABLE mark (
 
 CREATE TABLE mark_note (
   id_note INT NOT NULL,
-  id_metka INT NOT NULL);
+  id_metka INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id_metka`)
+);
 
 CREATE TABLE notebook (
   id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(255) NOT NULL
-)
+);

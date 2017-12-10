@@ -3,7 +3,6 @@ package persistenceTest;
 import com.epam.note.config.AppConfig;
 import com.epam.note.model.Mark;
 import com.epam.note.persistence.MarkRepository;
-import com.epam.note.persistence.NoteRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,7 @@ public class MarkRepTest {
         mark.setId(1);
         mark.setTitle("Zametochka");
         markRepository.save(mark);
-        Mark byId = markRepository.getById(1);
+        Mark byId = markRepository.getMarkById(1);
         assertThat(byId.getTitle(), is(mark.getTitle()));
     }
     @Test
@@ -42,7 +41,7 @@ public class MarkRepTest {
         Mark save = markRepository.save(mark);
         assertThat(save, is(mark));
         markRepository.delete(mark);
-        assertTrue(markRepository.getById(2) == null);
+        assertTrue(markRepository.getMarkById(2) == null);
 
     }
 }

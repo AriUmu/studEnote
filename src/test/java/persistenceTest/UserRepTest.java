@@ -27,16 +27,19 @@ public class UserRepTest {
 
     @Test
     public void getAll() {
-        User user = new User();
-        user.setId(1);
-        user.setName("Aru");
-        user.setLogin("Ariha@yandex.ru");
-        user.setPassword("1234");
+//        User user = new User();
+//        user.setId(1);
+//        user.setName("Aru");
+//        user.setLogin("Ariha@yandex.ru");
+//        user.setPassword("1234");
 
-        userRepository.save(user);
-        User user1 = userRepository.getById(1);
+//        userRepository.save(user);
+//        User user1 = userRepository.getById(3);
+        List<User> all = userRepository.findAll();
+        System.out.println("SIZE " + all.size());
 
-        assertThat(user1.getName(), is("Aru"));
+//        System.out.println(user1.getName() + " !!!!!!!");
+//        assertThat(user1.getName(), is("Aru"));
     }
 
 

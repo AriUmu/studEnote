@@ -13,8 +13,13 @@ public class User {
     @GeneratedValue
     private int id;
 
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "login")
     private String login;
+
+    @Column(name = "password")
     private String password;
 
     public User() {
