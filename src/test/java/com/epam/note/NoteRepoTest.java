@@ -1,6 +1,8 @@
+package com.epam.note;
+
 import com.epam.note.config.AppConfig;
 import com.epam.note.model.Note;
-import com.epam.note.persistence.NoteRepository;
+import com.epam.note.repos.NoteRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,7 @@ import static org.junit.Assert.assertThat;
 @ContextConfiguration(classes = AppConfig.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 
-public class NoteDaoImplTest {
+public class NoteRepoTest {
 
     @Autowired
     NoteRepository noteRepository;
@@ -38,6 +40,25 @@ public class NoteDaoImplTest {
 
         noteRepository.save(note);
         Note testNote = noteRepository.getById(1);
+
+        assertThat(testNote, is(note));
+    }
+    @Test
+    public void getNoteByTitleTest(){
+        Note note  = new Note();
+        note.setId(1);
+        note.setTitle("Zametochka");
+        note.setText("Жил-был карась," +
+                "вот и сказка началась." +
+                "Жил был налим," +
+                "вот и сказки половина." +
+                "Жил был тунец," +
+                "вот и сказочки конец.");
+        note.setDate(LocalDateTime.now());
+        note.setIdNotebook(1);
+
+        noteRepository.save(note);
+        Note testNote = noteRepository.getNoteByTitle("Zametochka");
 
         assertThat(testNote, is(note));
     }

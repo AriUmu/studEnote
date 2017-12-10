@@ -1,15 +1,15 @@
-package com.epam.note.persistence;
+package com.epam.note.repos;
 
 import com.epam.note.model.Note;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import java.time.LocalDateTime;
 
 public interface NoteRepository extends JpaRepository<Note, Long> {
 
 
     Note save(Note note);
-    Note getById(long i);
 
+    Note getById(int i);
+
+    Note getNoteByTitle(String title);
 
 }
