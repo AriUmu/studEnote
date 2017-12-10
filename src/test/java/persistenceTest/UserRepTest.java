@@ -1,5 +1,6 @@
+package persistenceTest;
+
 import com.epam.note.config.AppConfig;
-import com.epam.note.dao.UserDaoImpl;
 import com.epam.note.model.User;
 import com.epam.note.persistence.UserRepository;
 import org.junit.Test;
@@ -15,10 +16,11 @@ import static org.hamcrest.core.Is.is;
 
 import static org.junit.Assert.assertThat;
 
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
-public class UserDaoImplTest {
+public class UserRepTest {
 
     @Autowired
     UserRepository userRepository;
@@ -69,6 +71,22 @@ public class UserDaoImplTest {
         userRepository.save(user1);
         List<User> all = userRepository.findAll();
         all.forEach(t -> System.out.println(t.getName()));
+
+    }
+    @Test
+    public void existUser(){
+        User user = new User();
+        user.setId(6);
+        user.setName("Coco");
+        user.setLogin("blabla");
+        user.setPassword("1234");
+
+        userRepository.save(user);
+
+        User byLogin = userRepository.getByLogin("blabla");
+//        assertTrue(true);
+        assertThat(byLogin.getLogin(), is("blabla"));
+
 
     }
 

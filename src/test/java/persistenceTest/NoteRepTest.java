@@ -1,3 +1,5 @@
+package persistenceTest;
+
 import com.epam.note.config.AppConfig;
 import com.epam.note.model.Note;
 import com.epam.note.persistence.NoteRepository;
@@ -17,7 +19,7 @@ import static org.junit.Assert.assertThat;
 @ContextConfiguration(classes = AppConfig.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
 
-public class NoteDaoImplTest {
+public class NoteRepTest {
 
     @Autowired
     NoteRepository noteRepository;
@@ -38,7 +40,6 @@ public class NoteDaoImplTest {
 
         noteRepository.save(note);
         Note testNote = noteRepository.getById(1);
-
         assertThat(testNote, is(note));
     }
 }
