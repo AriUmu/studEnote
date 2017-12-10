@@ -26,17 +26,16 @@ public class NotebookRepoTest {
     @Test
     public void getNotebookByIdTest(){
         Notebook notebook  = new Notebook();
-        notebook.setId(1);
         notebook.setTitle("Блокнот");
 
         notebookRepository.save(notebook);
-        Notebook testNotebook = notebookRepository.getNotebookById(1L);
+        long id = notebookRepository.getNotebookByTitle("Блокнот").getId();
+        Notebook testNotebook = notebookRepository.getNotebookById(id);
         assertThat(testNotebook, is(notebook));
     }
     @Test
     public void getNotebookByTitleTest(){
         Notebook notebook  = new Notebook();
-        notebook.setId(1);
         notebook.setTitle("Блокнот");
 
         notebookRepository.save(notebook);
@@ -48,16 +47,15 @@ public class NotebookRepoTest {
     @Transactional
     @Test
     public void  deleteNotebookById(){
-
         Notebook notebook  = new Notebook();
-        notebook.setId(1);
         notebook.setTitle("Zametochka");
         notebookRepository.save(notebook);
-        Notebook testMark = notebookRepository.getNotebookById(1);
+        long id = notebookRepository.getNotebookByTitle("Zametochka").getId();
+        Notebook testMark = notebookRepository.getNotebookById(id);
         assertThat(testMark, is(notebook));
 
         notebookRepository.deleteNotebookById(notebook.getId());
         testMark = notebookRepository.getNotebookById(1);
-        assertThat(testMark,is(nullValue()));
+        assertThat(null,is(testMark));
     }
 }

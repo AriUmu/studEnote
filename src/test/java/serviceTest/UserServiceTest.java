@@ -30,8 +30,8 @@ public class UserServiceTest {
 
         User user = new User();
         user.setId(2);
-        user.setName("Pasha");
-        user.setLogin("Pasha@yandex.ru");
+        user.setName("Pasha12");
+        user.setLogin("Pasha12@yandex.ru");
         user.setPassword("1234");
         assertTrue(userService.saveUser(user));
     }

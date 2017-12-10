@@ -27,8 +27,7 @@ public class NoteRepTest {
     @Test
     public void getNoteByIdTest(){
         Note note  = new Note();
-        note.setId(1);
-        note.setTitle("Zametochka");
+        note.setTitle("Zametochka2");
         note.setText("Жил-был карась," +
                 "вот и сказка началась." +
                 "Жил был налим," +
@@ -39,7 +38,8 @@ public class NoteRepTest {
         note.setIdNotebook(1);
 
         noteRepository.save(note);
-        Note testNote = noteRepository.getById(1);
+        long id = noteRepository.getNoteByTitle("Zametochka2").getId();
+        Note testNote = noteRepository.getById(id);
         assertThat(testNote, is(note));
     }
 }

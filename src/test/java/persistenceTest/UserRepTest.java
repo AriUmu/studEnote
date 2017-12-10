@@ -15,6 +15,7 @@ import java.util.List;
 import static org.hamcrest.core.Is.is;
 
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,55 +28,40 @@ public class UserRepTest {
 
     @Test
     public void getAll() {
-//        User user = new User();
-//        user.setId(1);
-//        user.setName("Aru");
-//        user.setLogin("Ariha@yandex.ru");
-//        user.setPassword("1234");
-
-//        userRepository.save(user);
-//        User user1 = userRepository.getById(3);
+        User user = new User();
+        user.setName("Ari");
+        user.setLogin("Ariha@yandex.ru");
+        user.setPassword("1234");
+        userRepository.save(user);
         List<User> all = userRepository.findAll();
-        System.out.println("SIZE " + all.size());
-
-//        System.out.println(user1.getName() + " !!!!!!!");
-//        assertThat(user1.getName(), is("Aru"));
+        assertTrue(!all.isEmpty());
     }
 
 
     @Test
     public void getByName() {
         User user = new User();
-        user.setId(1);
-        user.setName("Ari");
+        user.setName("Trololo");
         user.setLogin("Ariha@yandex.ru");
         user.setPassword("1234");
 
         userRepository.save(user);
-        User one = userRepository.getByName("Ari");
-        assertThat(one.getName(), is("Ari"));
+        User one = userRepository.getByName("Trololo");
+        assertThat(one.getName(), is("Trololo"));
     }
 
     @Test
     public void deleteById() {
         User user = new User();
-        user.setId(1);
         user.setName("Peri");
-        user.setLogin("Ariha@yandex.ru");
+        user.setLogin("Pasha@yandex.ru1");
         user.setPassword("1234");
 
-        User user1 = new User();
-        user1.setId(2);
-        user1.setName("Arisha");
-        user1.setLogin("Ariha@yandex.ru");
-        user1.setPassword("1234");
-
         userRepository.save(user);
-        userRepository.save(user1);
-        List<User> all = userRepository.findAll();
-        all.forEach(t -> System.out.println(t.getName()));
-
+        userRepository.delete(user);
+        assertTrue(true);
     }
+
     @Test
     public void existUser(){
         User user = new User();
@@ -87,7 +73,6 @@ public class UserRepTest {
         userRepository.save(user);
 
         User byLogin = userRepository.getByLogin("blabla");
-//        assertTrue(true);
         assertThat(byLogin.getLogin(), is("blabla"));
 
 

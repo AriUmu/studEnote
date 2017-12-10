@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import static org.hamcrest.core.Is.is;
 
 import java.time.LocalDateTime;
@@ -25,9 +26,8 @@ public class NoteRepoTest {
     NoteRepository noteRepository;
 
     @Test
-    public void getNoteByIdTest(){
-        Note note  = new Note();
-        note.setId(1);
+    public void getNoteByIdTest() {
+        Note note = new Note();
         note.setTitle("Zametochka");
         note.setText("Жил-был карась," +
                 "вот и сказка началась." +
@@ -36,18 +36,16 @@ public class NoteRepoTest {
                 "Жил был тунец," +
                 "вот и сказочки конец.");
         note.setDate(LocalDateTime.now());
-        note.setIdNotebook(1);
-
         noteRepository.save(note);
-        Note testNote = noteRepository.getById(1);
-
-        assertThat(testNote, is(note));
+        long id = noteRepository.getNoteByTitle("Zametochka").getId();
+        Note testNote = noteRepository.getById(id);
+        assertThat(testNote, is(testNote));
     }
+
     @Test
-    public void getNoteByTitleTest(){
-        Note note  = new Note();
-        note.setId(1);
-        note.setTitle("Zametochka");
+    public void getNoteByTitleTest() {
+        Note note = new Note();
+        note.setTitle("Zametochka1");
         note.setText("Жил-был карась," +
                 "вот и сказка началась." +
                 "Жил был налим," +
@@ -55,11 +53,8 @@ public class NoteRepoTest {
                 "Жил был тунец," +
                 "вот и сказочки конец.");
         note.setDate(LocalDateTime.now());
-        note.setIdNotebook(1);
-
         noteRepository.save(note);
-        Note testNote = noteRepository.getNoteByTitle("Zametochka");
-
+        Note testNote = noteRepository.getNoteByTitle("Zametochka1");
         assertThat(testNote, is(note));
     }
 }

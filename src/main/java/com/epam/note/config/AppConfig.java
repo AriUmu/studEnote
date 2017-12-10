@@ -53,7 +53,6 @@ public class AppConfig {
         return bean;
     }
 
-
     @Bean
     public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
         return new JpaTransactionManager(emf);
