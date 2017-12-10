@@ -1,15 +1,14 @@
+package com.epam.note;
+
 import com.epam.note.config.AppConfig;
-import com.epam.note.dao.UserDaoImpl;
 import com.epam.note.model.User;
-import com.epam.note.persistence.UserRepository;
+import com.epam.note.repos.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 
@@ -18,7 +17,7 @@ import static org.junit.Assert.assertThat;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = AppConfig.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
-public class UserDaoImplTest {
+public class UserRepoTest {
 
     @Autowired
     UserRepository userRepository;
