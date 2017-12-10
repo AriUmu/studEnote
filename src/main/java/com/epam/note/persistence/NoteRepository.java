@@ -8,7 +8,7 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
 
     Note save(Note note);
 
-    Note getById(int i);
+    Note getById(long i);
 
     Note getNoteByTitle(String title);
 
