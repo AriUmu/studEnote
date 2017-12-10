@@ -1,4 +1,4 @@
-package com.epam.note;
+package com.epam.note.persistence;
 
 import com.epam.note.config.AppConfig;
 import com.epam.note.model.Mark;
@@ -25,13 +25,13 @@ public class MarkRepoTest {
     MarkRepository markRepository;
 
     @Test
-    public void getMarkByIdTest(){
+    public void getMarkById(){
         Mark mark  = new Mark();
         mark.setId(1);
         mark.setTitle("Zametochka");
 
         markRepository.save(mark);
-        Mark testMark = markRepository.getMarkById(1);
+        Mark testMark = markRepository.getMarkById(1L);
         assertThat(testMark, is(mark));
     }
     @Test
@@ -69,27 +69,10 @@ public class MarkRepoTest {
         mark.setId(1);
         mark.setTitle("Zametochka");
         markRepository.save(mark);
-        Mark testMark = markRepository.getMarkById(1);
-        assertThat(testMark, is(mark));
         markRepository.deleteMarkByTitle("Zametochka");
-        testMark = markRepository.getMarkById(1);
+        Mark testMark = markRepository.getMarkById(1);
         assertThat(testMark, is(nullValue()));
 
 
     }
-//    @Transactional
-//    @Test
-//    public void  deleteMarkByTitle(){
-//
-//        Mark mark  = new Mark();
-//        mark.setId(1);
-//        mark.setTitle("Zametochka");
-//        markRepository.save(mark);
-//        Mark testMark = markRepository.getMarkById(1);
-//        assertThat(testMark, is(mark));
-//
-//        markRepository.deleteMarkByTitle("Zametochka");
-//        testMark = markRepository.getMarkByTitle("Zametochka");
-//        assertThat(testMark,is(nullValue()));
-//    }
 }

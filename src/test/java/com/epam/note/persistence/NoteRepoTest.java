@@ -1,4 +1,4 @@
-package com.epam.note;
+package com.epam.note.persistence;
 
 import com.epam.note.config.AppConfig;
 import com.epam.note.model.Note;

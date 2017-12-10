@@ -8,7 +8,7 @@ public interface MarkRepository extends JpaRepository<Mark, Long> {
 
     Mark save(Mark note);
 
-    Mark getMarkById(long i);
+    Mark getMarkById(long id);
 
     Mark getMarkByTitle(String title);
 
