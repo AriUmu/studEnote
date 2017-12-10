@@ -17,7 +17,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan("com.epam.note")
-@EnableJpaRepositories("com.epam.note.repos")
+@EnableJpaRepositories("com.epam.note.persistence")
 public class AppConfig {
     @Bean
     public DataSource dataSource(){

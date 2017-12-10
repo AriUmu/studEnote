@@ -2,7 +2,7 @@ package com.epam.note;
 
 import com.epam.note.config.AppConfig;
 import com.epam.note.model.Note;
-import com.epam.note.repos.NoteRepository;
+import com.epam.note.persistence.NoteRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

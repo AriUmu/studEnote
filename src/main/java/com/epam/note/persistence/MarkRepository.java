@@ -1,4 +1,4 @@
-package com.epam.note.repos;
+package com.epam.note.persistence;
 
 import com.epam.note.model.Mark;
 import org.springframework.data.jpa.repository.JpaRepository;
