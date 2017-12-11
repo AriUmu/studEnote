@@ -2,6 +2,8 @@ package com.epam.note.service;
 
 import com.epam.note.model.User;
 import com.epam.note.persistence.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    protected static Logger logger = LoggerFactory.getLogger(UserService.class);
     /*
     Register  new user
      */
@@ -22,6 +25,7 @@ public class UserServiceImpl implements UserService {
         if (userRepository.getByLogin(user.getLogin()) == null) {
             user.setPassword(encoderPass(user.getPassword()));
             userRepository.save(user);
+            logger.info("User save succesfully");
             return true;
         } else {
             throw new Exception("The same login is exists yet!");
@@ -35,6 +39,7 @@ public class UserServiceImpl implements UserService {
     public boolean accessUserPage(User user) throws Exception {
         if (userRepository.getById(user.getId()) != null) {
             if (userRepository.getById(user.getId()).getPassword().equals(user.getPassword())) {
+                logger.info("User successfully accessed to the page");
                 return true;
             }
             System.out.println(encoderPass(user.getPassword() + " ??????"));

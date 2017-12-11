@@ -65,7 +65,6 @@ public class UserRepTest {
     @Test
     public void existUser(){
         User user = new User();
-        user.setId(6);
         user.setName("Coco");
         user.setLogin("blabla");
         user.setPassword("1234");

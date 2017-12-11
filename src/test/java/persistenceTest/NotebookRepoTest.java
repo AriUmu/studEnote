@@ -1,7 +1,8 @@
-package com.epam.note.persistence;
+package persistenceTest;
 
 import com.epam.note.config.AppConfig;
 import com.epam.note.model.Notebook;
+import com.epam.note.persistence.NotebookRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
