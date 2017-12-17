@@ -86,25 +86,6 @@ public class Note {
         result = 31 * result + (int) (idNotebook ^ (idNotebook >>> 32));
         return result;
     }
-
-//    private Set<Mark> noteMark = new HashSet<>();
-//    public Set<Mark> getNoteMark() {
-//        return noteMark;
-//    }
-//    public void setNoteMark(Set<Mark> noteMark) {
-//        this.noteMark = noteMark;
-//    }
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "mark_note",
-//            joinColumns = {@JoinColumn(name = "id_note")},
-//            inverseJoinColumns = {@JoinColumn(name = "id_metka")}
-//    )
-//
-//    public void addMark(Mark mark) {
-//        noteMark.add(mark);
-//    }
-
 }
 
 

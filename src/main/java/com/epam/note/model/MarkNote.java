@@ -38,23 +38,6 @@ public class MarkNote {
         this.id_note = id_note;
     }
 
-
-//    private List<Note> list = new ArrayList<>();
-//
-//    private HashMap<Mark, List<Note>> markNoteHashMap = new HashMap<>();
-//
-//    public HashMap<Mark, List<Note>> getMarkNoteHashMap() {
-//        return markNoteHashMap;
-//    }
-//
-//    public void setMarkNoteHashMap(HashMap<Mark, List<Note>> markNoteHashMap) {
-//        this.markNoteHashMap = markNoteHashMap;
-//    }
-//
-//    public void addMark(Mark mark, Note note){
-//        list.add(note);
-//        markNoteHashMap.put(mark, list);
-//    }
 }
 
 
