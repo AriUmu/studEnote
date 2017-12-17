@@ -22,14 +22,14 @@ public class UserServiceImpl implements UserService {
     Register  new user
      */
     @Override
-    public boolean saveUser(User user) throws Exception {
+    public User saveUser(User user) {
         if (userRepository.getByLogin(user.getLogin()) == null) {
             user.setPassword(encoderPass(user.getPassword()));
             userRepository.save(user);
             logger.info("User save succesfully");
-            return true;
+            return user;
         } else {
-            throw new Exception("The same login is exists yet!");
+            throw new NullPointerException("The same login is exists yet!");
         }
     }
 

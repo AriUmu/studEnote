@@ -11,6 +11,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -33,7 +34,7 @@ public class UserServiceTest {
         user.setName("Pasha12");
         user.setLogin("Pasha12@yandex.ru");
         user.setPassword("1234");
-        assertTrue(userService.saveUser(user));
+        assertEquals(userService.saveUser(user), user);
     }
 
     @Test
