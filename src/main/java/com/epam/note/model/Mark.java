@@ -48,5 +48,22 @@ public class Mark {
     public int hashCode() {
         return title != null ? title.hashCode() : 0;
     }
+
+
+
+//    private Set<Note> noteSet = new HashSet<>();
+
+//    @ManyToMany
+//    @JoinTable(name = "mark_note",
+//            joinColumns = {@JoinColumn(name = "id_metka")},
+//            inverseJoinColumns = {@JoinColumn(name = "id_note")})
+//
+//    public Set<Note> getNoteSet() {
+//        return noteSet;
+//    }
+//
+//    public void setNoteSet(Set<Note> noteSet) {
+//        this.noteSet = noteSet;
+//    }
 }
 

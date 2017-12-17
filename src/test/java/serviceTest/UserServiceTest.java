@@ -3,7 +3,7 @@ package serviceTest;
 import com.epam.note.config.AppConfig;
 import com.epam.note.model.User;
 import com.epam.note.persistence.UserRepository;
-import com.epam.note.service.UserServiceImpl;
+import com.epam.note.service.Impl.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

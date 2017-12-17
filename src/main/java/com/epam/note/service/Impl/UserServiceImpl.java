@@ -1,7 +1,8 @@
-package com.epam.note.service;
+package com.epam.note.service.Impl;
 
 import com.epam.note.model.User;
 import com.epam.note.persistence.UserRepository;
+import com.epam.note.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
