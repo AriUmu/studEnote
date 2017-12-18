@@ -2,7 +2,6 @@ package persistenceTest;
 
 import com.epam.note.config.AppConfig;
 import com.epam.note.model.Mark;
-import com.epam.note.model.MarkNote;
 import com.epam.note.model.Note;
 import com.epam.note.persistence.MarkRepository;
 import com.epam.note.persistence.NoteRepository;
@@ -31,9 +30,6 @@ public class MarkNoteTest {
 
     @Autowired
     NoteRepository noteRepository;
-
-    @Autowired
-    MarkNote markNote;
 
     @Test
     public void createMarkNote(){

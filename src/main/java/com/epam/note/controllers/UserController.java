@@ -19,7 +19,6 @@ public class UserController {
     @Autowired
     UserService userService;
 
-
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<User> createUser(@RequestBody User user) throws Exception {
         return new ResponseEntity<User>(userService.saveUser(user), OK);

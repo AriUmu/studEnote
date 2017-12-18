@@ -1,26 +1,39 @@
 package com.epam.note.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "note")
 public class Note {
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_notebook")
+    private Notebook notebook;
+
     @Id
     @GeneratedValue
     private long id;
-
 
     private String title;
 
     private String text;
 
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private LocalDateTime date;
 
     private long idNotebook;
+
+    @ManyToMany
+    @JoinTable(name = "note_mark",
+            joinColumns = @JoinColumn(name = "id_note"),
+            inverseJoinColumns = @JoinColumn(name = "id_metka")
+    )
+    private List<Mark> notes = new ArrayList<>();
 
     public Note() {
     }
@@ -63,6 +76,10 @@ public class Note {
 
     public String getText() {
         return text;
+    }
+
+    public void addLabel(Mark mark) {
+        notes.add(mark);
     }
 
     @Override

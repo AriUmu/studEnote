@@ -3,11 +3,18 @@ package com.epam.note.model;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 @Entity
 @Table(name = "notebook")
 public class Notebook {
+
+    @ManyToOne
+    @JoinColumn(name = "id_user")
+    private User user;
+
     @Id
     @GeneratedValue
     private long id;
@@ -16,7 +23,13 @@ public class Notebook {
     private String title;
 
     public Notebook() {
+    }
 
+    @OneToMany(mappedBy = "notebook", cascade = CascadeType.ALL)
+    private List<Note> notes = new ArrayList<>();
+
+    public void addNote(Note note) {
+        notes.add(note);
     }
 
     public long getId() {
