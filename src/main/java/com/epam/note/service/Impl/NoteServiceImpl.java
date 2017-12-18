@@ -8,13 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class NoteServiceImpl implements NoteService{
+public class NoteServiceImpl implements NoteService {
 
     @Autowired
     NoteRepository noteRepository;
-
-    @Autowired
-    MarkServiceImpl markService;
 
     @Override
     public void addNote(Note note) {
@@ -33,17 +30,14 @@ public class NoteServiceImpl implements NoteService{
 
     @Override
     public void deleteNote(Note note) {
-        noteRepository.delete(note.getId());
+        if (noteRepository.getById(note.getId()) != null) {
+            noteRepository.delete(note.getId());
+        }
     }
 
     @Override
     public List<Note> findAllNotes() {
-        return  noteRepository.findAll();
+        return noteRepository.findAll();
     }
 
-    @Override
-    public List<Note> findNoteByMark(Mark mark) {
-        List<Note> notes = markService.getMarkNoteHashMap().get(mark);
-        return notes;
-    }
 }

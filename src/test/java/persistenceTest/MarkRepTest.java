@@ -5,6 +5,8 @@ import com.epam.note.model.Mark;
 import com.epam.note.persistence.MarkRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
@@ -21,6 +23,8 @@ import static org.junit.Assert.assertTrue;
 
 public class MarkRepTest {
 
+    private Logger logger = LoggerFactory.getLogger(MarkRepTest.class);
+
     @Autowired
     MarkRepository markRepository;
 
@@ -31,6 +35,14 @@ public class MarkRepTest {
         mark.setTitle("Zametochka");
         markRepository.save(mark);
         Mark byId = markRepository.getMarkById(1);
+//
+//        Mark mark2  = new Mark();
+//        mark.setId(2);
+//        mark.setTitle("Zametochka2");
+//        markRepository.save(mark);
+//        Mark byId2 = markRepository.getMarkById(2);
+
+        logger.info("Mark " + byId.getTitle() + " was successfully added");
         assertThat(byId.getTitle(), is(mark.getTitle()));
     }
     @Test

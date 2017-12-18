@@ -17,5 +17,4 @@ public interface NoteService {
 
     List<Note> findAllNotes();
 
-    List<Note> findNoteByMark(Mark mark);
 }
