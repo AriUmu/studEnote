@@ -8,7 +8,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "mark")
 public class Mark {
-
     @Id
     @GeneratedValue
     private long id;
@@ -48,6 +47,5 @@ public class Mark {
     public int hashCode() {
         return title != null ? title.hashCode() : 0;
     }
-
 }
 
