@@ -37,7 +37,7 @@ public class NoteServiceImpl implements NoteService {
 
     @Override
     public List<Note> findAllNotes() {
-        return noteRepository.findAll();
+        return (List<Note>) noteRepository.findAll();
     }
 
 }

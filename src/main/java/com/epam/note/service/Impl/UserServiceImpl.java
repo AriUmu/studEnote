@@ -43,7 +43,6 @@ public class UserServiceImpl implements UserService {
                 logger.info("User successfully accessed to the page");
                 return true;
             }
-            System.out.println(encoderPass(user.getPassword() + " ??????"));
             throw new Exception("The password is not correct!");
         }
         return false;
@@ -69,7 +68,7 @@ public class UserServiceImpl implements UserService {
             }
             generatedPassword = sb.toString();
         } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Error with password");
         }
         return generatedPassword;
     }
