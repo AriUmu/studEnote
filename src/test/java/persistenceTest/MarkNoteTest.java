@@ -1,6 +1,7 @@
 package persistenceTest;
 
-import com.epam.note.config.AppConfig;
+
+import com.epam.note.Application;
 import com.epam.note.model.Mark;
 import com.epam.note.model.Note;
 import com.epam.note.persistence.MarkRepository;
@@ -8,17 +9,20 @@ import com.epam.note.persistence.NoteRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.time.LocalDateTime;
-
+import java.util.Date;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = AppConfig.class)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
-
+@DataJpaTest
+@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
+@SpringBootTest(classes = Application.class)
 public class MarkNoteTest {
 
     @Autowired
@@ -43,18 +47,9 @@ public class MarkNoteTest {
                 "вот и сказки половина." +
                 "Жил был тунец," +
                 "вот и сказочки конец.");
-        note.setDate(LocalDateTime.now());
+        note.setDate(new Date());
         note.setIdNotebook(1);
         noteRepository.save(note);
 
-//        markNote.addMark(mark, note);
-//        List<Note> notes = markNote.getMarkNoteHashMap().get(mark);
-//
-//        for (Note note1 : notes){
-//            if(note1.equals(note)){
-//                assertTrue(true);
-//                break;
-//            }
-//        }
     }
 }

@@ -1,15 +1,20 @@
 package serviceTest;
 
-import com.epam.note.config.AppConfig;
+import com.epam.note.Application;
 import com.epam.note.model.User;
 import com.epam.note.persistence.UserRepository;
 import com.epam.note.service.Impl.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -17,11 +22,8 @@ import static org.junit.Assert.assertTrue;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = AppConfig.class)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
+@SpringBootTest(classes = Application.class)
 public class UserServiceTest {
-    @Autowired
-    UserRepository userRepository;
 
     @Autowired
     UserServiceImpl userService;
@@ -30,11 +32,10 @@ public class UserServiceTest {
     public void saveUser() throws Exception {
 
         User user = new User();
-        user.setId(2);
         user.setName("Pasha12");
-        user.setLogin("Pasha12@yandex.ru");
-        user.setPassword("1234");
-        assertEquals(userService.saveUser(user), user);
+        user.setLogin("Pasha12@yandex.trololo");
+        user.setPassword("123454");
+        assertEquals("Pasha12", userService.saveUser(user).getName());
     }
 
     @Test

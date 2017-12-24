@@ -5,15 +5,13 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 @Table(name = "note")
 public class Note {
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_notebook")
-    private Notebook notebook;
 
     @Id
     @GeneratedValue
@@ -24,16 +22,10 @@ public class Note {
     private String text;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
-    private LocalDateTime date;
+    private Date date;
 
-    private long idNotebook;
+    private long id_notebook;
 
-    @ManyToMany
-    @JoinTable(name = "note_mark",
-            joinColumns = @JoinColumn(name = "id_note"),
-            inverseJoinColumns = @JoinColumn(name = "id_metka")
-    )
-    private List<Mark> notes = new ArrayList<>();
 
     public Note() {
     }
@@ -46,12 +38,12 @@ public class Note {
         this.title = title;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
     public void setIdNotebook(long idNotebook) {
-        this.idNotebook = idNotebook;
+        this.id_notebook = idNotebook;
     }
 
     public void setText(String text) {
@@ -66,21 +58,21 @@ public class Note {
         return title;
     }
 
-    public LocalDateTime getDate() {
+    public Date getDate() {
         return date;
     }
 
     public long getIdNotebook() {
-        return idNotebook;
+        return id_notebook;
     }
 
     public String getText() {
         return text;
     }
 
-    public void addLabel(Mark mark) {
-        notes.add(mark);
-    }
+//    public void addLabel(Mark mark) {
+//        notes.add(mark);
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -89,7 +81,7 @@ public class Note {
 
         Note note = (Note) o;
 
-        if (idNotebook != note.idNotebook) return false;
+        if (id_notebook != note.id_notebook) return false;
         if (title != null ? !title.equals(note.title) : note.title != null) return false;
         if (text != null ? !text.equals(note.text) : note.text != null) return false;
         return date != null ? date.equals(note.date) : note.date == null;
@@ -100,7 +92,7 @@ public class Note {
         int result = title != null ? title.hashCode() : 0;
         result = 31 * result + (text != null ? text.hashCode() : 0);
         result = 31 * result + (date != null ? date.hashCode() : 0);
-        result = 31 * result + (int) (idNotebook ^ (idNotebook >>> 32));
+        result = 31 * result + (int) (id_notebook ^ (id_notebook >>> 32));
         return result;
     }
 }

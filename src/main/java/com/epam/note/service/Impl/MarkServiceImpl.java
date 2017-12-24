@@ -3,11 +3,13 @@ package com.epam.note.service.Impl;
 import com.epam.note.model.Mark;
 import com.epam.note.model.Note;
 import com.epam.note.service.MarkService;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+@Service
 public class MarkServiceImpl implements MarkService {
     private List<Note> list = new ArrayList<>();
 
