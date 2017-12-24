@@ -1,13 +1,14 @@
 package com.epam.note.service.Impl;
 
-import com.epam.note.model.Mark;
 import com.epam.note.model.Note;
 import com.epam.note.persistence.NoteRepository;
 import com.epam.note.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class NoteServiceImpl implements NoteService {
 
     @Autowired

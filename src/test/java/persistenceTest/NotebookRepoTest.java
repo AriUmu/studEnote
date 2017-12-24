@@ -1,14 +1,18 @@
 package persistenceTest;
 
-import com.epam.note.config.AppConfig;
+import com.epam.note.Application;
 import com.epam.note.model.Notebook;
 import com.epam.note.persistence.NotebookRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.hamcrest.core.Is.is;
@@ -16,9 +20,9 @@ import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = AppConfig.class)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_CLASS)
-
+@DataJpaTest
+@AutoConfigureTestDatabase(replace= AutoConfigureTestDatabase.Replace.NONE)
+@SpringBootTest(classes = Application.class)
 public class NotebookRepoTest {
 
     @Autowired
@@ -27,20 +31,20 @@ public class NotebookRepoTest {
     @Test
     public void getNotebookByIdTest(){
         Notebook notebook  = new Notebook();
-        notebook.setTitle("Блокнот");
+        notebook.setTitle("Notebook");
 
         notebookRepository.save(notebook);
-        long id = notebookRepository.getNotebookByTitle("Блокнот").getId();
+        long id = notebookRepository.getNotebookByTitle("Notebook").getId();
         Notebook testNotebook = notebookRepository.getNotebookById(id);
         assertThat(testNotebook, is(notebook));
     }
     @Test
     public void getNotebookByTitleTest(){
         Notebook notebook  = new Notebook();
-        notebook.setTitle("Блокнот");
+        notebook.setTitle("Bloknote");
 
         notebookRepository.save(notebook);
-        Notebook testNotebook = notebookRepository.getNotebookByTitle("Блокнот");
+        Notebook testNotebook = notebookRepository.getNotebookByTitle("Bloknote");
 
         assertThat(testNotebook, is(notebook));
     }
