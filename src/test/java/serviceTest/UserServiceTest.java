@@ -16,9 +16,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.*;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -42,8 +41,8 @@ public class UserServiceTest {
     public void accessUserPageTest() throws Exception {
         User user = new User("Ivan", "Ivan@inan.com", "I5667");
         userService.saveUser(user);
-        boolean b = userService.accessUserPage(user);
-        assertTrue(b);
+        User user1 = userService.accessUserPage(user);
+        assertThat(user, is(user1));
     }
 
 

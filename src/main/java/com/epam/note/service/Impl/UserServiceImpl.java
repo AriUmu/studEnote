@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -37,15 +36,15 @@ public class UserServiceImpl implements UserService {
     Login in enote
      */
     @Override
-    public boolean accessUserPage(User user) throws Exception {
+    public User accessUserPage(User user) throws Exception {
         if (userRepository.getById(user.getId()) != null) {
             if (userRepository.getById(user.getId()).getPassword().equals(user.getPassword())) {
                 logger.info("User successfully accessed to the page");
-                return true;
+                return user;
             }
             throw new Exception("The password is not correct!");
         }
-        return false;
+        return null;
     }
 
 

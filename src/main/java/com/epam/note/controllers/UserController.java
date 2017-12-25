@@ -12,20 +12,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import static org.springframework.http.HttpStatus.*;
 
 @Controller
+@RequestMapping("http://localhost:8080")
 public class UserController {
 
     @Autowired
     UserService userService;
 
-    @RequestMapping(method = RequestMethod.POST, value = {"/", "/login"})
+    @RequestMapping(method = RequestMethod.POST, value = {"/"})
     public ResponseEntity<User> createUser(@RequestBody User user) throws Exception {
         return new ResponseEntity<User>(userService.saveUser(user), OK);
     }
 
 
     @RequestMapping(method = RequestMethod.GET, value = {"/"})
-    public boolean getUser(@RequestBody User user) throws Exception {
-        return (userService.accessUserPage(user));
+    public ResponseEntity<User> getUser(@RequestBody User user) throws Exception {
+        return new ResponseEntity<User>(userService.accessUserPage(user), OK);
     }
 
 

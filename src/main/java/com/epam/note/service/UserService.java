@@ -6,7 +6,7 @@ public interface UserService {
 
     User saveUser (User user) throws Exception;
 
-    boolean accessUserPage(User user) throws Exception;
+    User accessUserPage(User user) throws Exception;
 
     void updateUserPassword(String LastPassword, String newPassword);
 }
