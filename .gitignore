@@ -2,6 +2,3 @@
 /.idea
 /target
 /ENOTE.iml
-src/main/resources/META-INF/
-src/main/webapp/resourses/
-src/main/java/com/epam/note/Application.java
