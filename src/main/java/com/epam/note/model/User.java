@@ -34,9 +34,9 @@ public class User {
     @Override
     public String toString() {
         return "{" +
-                "name:'" + name + " \\ ," +
-                "login:'" + login + " \\ ," +
-                "password:'" + password + '\'' +
+                "name:" + name + ',' +
+                "login:" + login + ',' +
+                "password:" + password +
                 '}';
     }
 
