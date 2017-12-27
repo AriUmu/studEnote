@@ -8,5 +8,7 @@ public interface UserService {
 
     User accessUserPage(User user) throws Exception;
 
-    void updateUserPassword(String LastPassword, String newPassword);
+    void updateUserPassword(Integer userId, String LastPassword, String newPassword);
+
+    User getUserById(int id);
 }
