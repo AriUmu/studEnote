@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "title": "Bla",
+    "text": "Hello world",
+    "date": 1514387689619,
+    "idNotebook": 2
+  },
+
+  {
+    "id": 2,
+    "title": "BlaBlaCar",
+    "text": "Hello world2",
+    "date": 1514387689619,
+    "idNotebook": 2
+  }
+]
